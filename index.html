@@ -22,22 +22,31 @@
                 }),
                 document.getElementById('my_btn').addEventListener('click', function () {
                     AF('pba', 'event', {eventType: 'EVENT', eventCategory: 'conversion', eventName: 'btn click'})
-                })
-        }
+                    window.AF_SDK.PLUGINS.PBA.enableMeasurement()
 
+                }),
+                document.getElementById('disable').addEventListener('click', function () {
+                    AF('pba', 'event', {eventType: 'EVENT', eventCategory: 'conversion', eventName: 'disable click'})
+                    window.AF_SDK.PLUGINS.PBA.disableMeasurement()
+
+
+                })
+
+        }
     </script>
 
 
-    <title>Page Title</title>
+    <title>PBA TEST</title>
 </head>
 <body>
 
 <h1>Paz Lavi</h1>
 <h2>This page is for testing Appsflyer PBA SDK</h2>
 <p>My first paragraph.</p>
-<a href="https://paz.onelink.me/waF3/paz">Launch One Link</a>
+<a href="https://support.appsflyer.com/hc/en-us/articles/360001610038-PBA-web-SDK-integration-guide">integration guide</a>
 
 <button id="my_btn">PBA TEST</button>
+<button id="disable">disable explicit control</button>
 </body>
 </html>
 
