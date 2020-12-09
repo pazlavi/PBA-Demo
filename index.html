@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
+    <script>
+        !function (t, e, n, s, a, c, i, o, p) {
+            t.AppsFlyerSdkObject = a, t.AF = t.AF || function () {
+                (t.AF.q = t.AF.q || []).push([Date.now()].concat(Array.prototype.slice.call(arguments)))
+            },
+                t.AF.id = t.AF.id || i, t.AF.plugins = {}, o = e.createElement(n), p = e.getElementsByTagName(n)[0], o.async = 1,
+                o.src = "https://websdk.appsflyer.com?" + (c.length > 0 ? "st=" + c.split(",").sort().join(",") + "&" : "") + (i.length > 0 ? "af_id=" + i : ""),
+                p.parentNode.insertBefore(o, p)
+        }(window, document, "script", 0, "AF", "pba", {pba: {webAppId: "3b0b15ad-125e-4786-b93d-003b13d6bf43"}})
+    </script>
+    <script>
+        window.onload = function () {
+            AF('pba', 'event', {eventType: 'IDENTIFY', customerId: 'paz'}),
+                AF('pba', 'event', {
+                    eventType: 'EVENT',
+                    eventCategory: 'conversion',
+                    eventName: 'test1',
+                    eventLabel: 'pba test'
+                }),
+                document.getElementById('my_btn').addEventListener('click', function () {
+                    AF('pba', 'event', {eventType: 'EVENT', eventCategory: 'conversion', eventName: 'btn click'})
+                })
+        }
+
+    </script>
+
+
+    <title>Page Title</title>
 </head>
 <body>
 
-<h1>My First Heading</h1>
+<h1>Paz Lavi</h1>
+<h2>This page is for testing Appsflyer PBA SDK</h2>
 <p>My first paragraph.</p>
 <a href="https://paz.onelink.me/waF3/paz">Launch One Link</a>
-  
+
+<button id="my_btn">PBA TEST</button>
 </body>
 </html>
+
